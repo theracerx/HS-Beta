@@ -1,36 +1,64 @@
-<!DOCTYPE HTML>
-<html oncontextmenu= "return false;">
+<!DOCTYPE html>
+<html>
 <head>
-<meta name="DC.title" content="Introduction3" />
-        <meta name="DC.date" content="2020-05-14 02:13:03 AM" />
-        <meta name="DC.language" content="ENU" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
-<meta name="google" value="notranslate" /> 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Created by Camtasia 2019</title>
-
-<style>
-html, body {
-	margin: 0px;
-	padding: 0px;
-	font-family:Verdana, Geneva, sans-serif;
-	background-color: #1a1a1a;
-	text-align: center;
-	width: 100%;
-    height: 100%; 
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<script>
+function playVid() {
+document.getElementsByClassName("hotspot-link-7")[0].setAttribute("onclick","speech()");
 }
-
-</style>
-<script type='text/javascript'>
-window.onbeforeunload = function(){
-  return 'Are you sure you want to leave?';
-};
+function speech(){
+alert("HIIIIIIIIII!");
+}
 </script>
-<link href="Introduction3Oct9_embed.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-<iframe oncontextmenu= "return false;" class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="Introduction3Oct9_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
+
+</head>
+
+<body onload="playVid()">
+
+
+<div id="dog" class="modal">
+  <p>Thanks for clicking. That felt good.</p>
+  <a href="#" rel="modal:close">Close</a>
+</div>
+
+<!-- Link to open the modal -->
+<p><a id="snek" href="#dog" rel="modal:open">Open Modal</a></p>
+
+
+
+
+<p class="hotspot-link-7"> YESSSSSSSSSSSSSSS </p>
+<button class="myBtn2" class="hotspot-link-8"> NOOOOOO </button>
+<p class="demo"> yeeaahhh </p>
 </body>
+
+<!-- style1 change text-->
+<script>
+document.getElementsByClassName("myBtn")[0].addEventListener("click", function() {
+  document.getElementsByClassName("demo")[0].innerHTML = "Hello World";
+});
+</script>
+<!-- style2 alert-->
+<script>
+document.getElementsByClassName("myBtn2")[0].addEventListener("click", function() {
+  alert("cat");
+});
+</script>
+<!-- style3 force click button-->
+<script>
+document.getElementsByClassName("myBtn3")[0].addEventListener("click", function() {
+  document.getElementById("snek").click();
+});
+</script>
+<a href="1/1.html">
+<div>
+<h1>Page1</h1>
+</div>
+</a>
+
 </html>

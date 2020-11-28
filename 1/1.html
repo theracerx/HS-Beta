@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html >
+
+<head >
+<meta name="DC.title" content="Introduction3" />
+        <meta name="DC.date" content="2020-05-14 02:13:03 AM" />
+        <meta name="DC.language" content="ENU" />
+
+<meta name="google" value="notranslate" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Created by Camtasia 2019</title>
+
+<style>
+html, body {
+	margin: 0px;
+	padding: 0px;
+	font-family:Verdana, Geneva, sans-serif;
+	background-color: #1a1a1a;
+	text-align: center;
+	width: 100%;
+    height: 100%; 
+}
+
+</style>
+
+<script>
+function yus() {
+  alert("I am an alert box!");
+}
+</script>
+
+<link href="Introduction3Oct9_embed.css" rel="stylesheet" type="text/css">
+</head>
+
+
+
+<body>
+<iframe class="tscplayer_inline" id="embeddedSmartPlayerInstance" src="Introduction3Oct9_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<div id="PlayerDiv">
+	<p id="PlayerContainer"> </p>
+</div>
+	<button id="YTStopBtn" onclick="stopVideo()">Stop</button>
+	<button id="YTPlayBtn" onclick="playVideo()">Play</button>
+	<button id="YTPauseBtn" onclick="pauseVideo()">Pause</button>
+	<button id="YTAddSpdBtn"onclick="addPlaybackRate(cspeed)"> Add speed by x.1</button>
+	<button id="YTSubSpdBtn"onclick="subPlaybackRate(cspeed)"> Sub speed by x.1</button>
+	<button id="YTSetVol"onclick="setVolume(cvolume)">Set Volume</button>
+	<button id="YTPlayer2"onclick="onYouTubeIframeAPIReady2()">Add Player2</button> <!--duplicate this button to the amount of videos to be used-->
+	
+	
+<script> // YTPlayer script
+	  var cspeed = 1; //set volume start
+	  var cvolume = 50; //set playback rate at start
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	  
+      var YTplayer;
+      function onYouTubeIframeAPIReady() {
+        YTplayer = new YT.Player('PlayerContainer', {
+          height: '144',
+          width: '256',
+          videoId: 'wwGnXPpbu4A',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+	  
+      function onPlayerReady(event) {
+		event.target.setVolume(cvolume); 
+		event.target.setPlaybackRate(cspeed); 
+      }
+      function onPlayerStateChange(event) {  // for looping the video
+        if (event.data == YT.PlayerState.ENDED) {
+          event.target.playVideo();
+        }
+      }
+	  
+      function stopVideo() {
+        YTplayer.stopVideo();
+      }
+	  function playVideo() {
+        YTplayer.playVideo();
+      }
+	  function pauseVideo() {
+        YTplayer.pauseVideo();
+      }
+	  function addPlaybackRate() {
+        YTplayer.setPlaybackRate(cspeed + 0.1);
+		cspeed = cspeed + 0.1;
+      }
+	  function subPlaybackRate() {
+        YTplayer.setPlaybackRate(cspeed - 0.1);
+		cspeed = cspeed - 0.1;
+      }
+	  function setVolume() {
+        if (cvolume == 100){
+			YTplayer.setVolume(0);
+			cvolume = 0;
+			console.log("Volume is now at " + cvolume + "%"); //add notification alert pls
+		} else{
+		YTplayer.setVolume(cvolume + 25);
+		cvolume = cvolume + 25;
+		console.log("Volume is now at " + cvolume + "%"); //add notification alert pls
+		}
+      }
+	  function removeCurrentContainer(){
+		document.getElementById("PlayerContainer").remove();
+	  }
+	  function addNewContainter(){
+		var node = document.createElement("p");
+		node.setAttribute("id","PlayerContainer");
+		var textnode = document.createTextNode("sample text of new player");
+		node.appendChild(textnode);
+        document.getElementById("PlayerDiv").appendChild(node);
+	  }
+	  function onYouTubeIframeAPIReady2() { // new YTvideo here //duplicate this function to the amount of videos to be used
+		removeCurrentContainer();
+		addNewContainter();
+		cspeed = 1; //set volume start
+		cvolume = 50; //set playback rate at start
+		YTplayer.setVolume(cvolume);
+		YTplayer.setPlaybackRate(cspeed);
+        YTplayer = new YT.Player('PlayerContainer', {
+          height: '144',
+          width: '256',
+          videoId: 'Te4xoueWvA8',
+          events: {
+            'onReady': onPlayerReady,
+			'onStateChange': onPlayerStateChange
+          }
+        });
+      }	  
+    </script>
+
+
+
+
+
+</body>
+
+
+</html>
